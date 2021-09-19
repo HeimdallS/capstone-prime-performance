@@ -1,0 +1,13 @@
+@use './partials/font-face.scss';
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Hind Madurai';
+}
+
