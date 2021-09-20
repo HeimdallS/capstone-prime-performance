@@ -1,0 +1,68 @@
+.burger {
+    background-color: teal;
+    height: 80px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+
+    &__bar {
+        margin-left: 2rem;
+        font-size: 2rem;
+        background: none;
+    }
+
+    &__menu {
+        background-color: grey;
+        width: 250px;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        position: fixed;
+        top: 0;
+        left: -100%;
+        transition: 850ms;
+
+        &--active {
+            left: 0;
+            transition: 850ms;
+        }
+    }
+
+    &__path {
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        padding: 8px 0px 8px 16px;
+        list-style: none;
+        height: 60px;
+    }
+
+    &__direct {
+        text-decoration: none;
+        color: yellow;
+        font-size: 18px;
+        width: 95%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        padding: 0 1rem;
+    }
+
+    &__menu-items {
+        width: 100%;
+        padding: 0;
+    }
+
+    &__toggle {
+        background-color: grey;
+        width: 100%;
+        height: 80px;
+        display: flex;
+        justify-content: start;
+        align-items: center;
+    }
+
+    &__path-name {
+        margin-left: 1rem;
+    }
+} 
