@@ -1,8 +1,9 @@
 import React, {useState} from 'react';
 import * as AiIcon from "react-icons/ai";
-import {Link} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 import {NavBarData} from './NavBarData';
 import "./NavBar.scss";
+import {IconContext} from 'react-icons';
 
 function NavBar() {
 
@@ -12,30 +13,33 @@ function NavBar() {
 
     return (
         <>
+        <IconContext.Provider value={{color:'#EEEBDD'}}>
             <div className="burger">
-                <Link to="#" className="burger__bar">
+                <NavLink to="#" className="burger__bar">
                     <AiIcon.AiOutlineBars onClick={showSidebar}/>
-                </Link>
+                </NavLink>
+                <NavLink to='/' className="header__title">Prime Performance</NavLink>
             </div>
             <nav className={sidebar ? 'burger__menu burger__menu--active' : 'burger__menu'}>
                 <ul className="burger__menu-items" onClick={showSidebar}>
                     <li className="burger__toggle">
-                        <Link to="#" className="burger__bar">
+                        <NavLink to="#" className="burger__bar">
                             <AiIcon.AiOutlineClose />
-                        </Link>
+                        </NavLink>
                     </li>
                     {NavBarData.map((item, index) => {
                         return(
                             <li key={index} className={item.className}>
-                                <Link to={item.path} className ="burger__direct">
+                                <NavLink to={item.path} className ="burger__direct">
                                     {item.icon}
                                     <span className="burger__path-name">{item.title}</span>
-                                </Link>
+                                </NavLink>
                             </li>
                         )
                     })}
                 </ul>
             </nav>
+        </IconContext.Provider>    
         </>
     )
 }
