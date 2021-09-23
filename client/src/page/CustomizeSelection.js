@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom';
 import axios from 'axios';
 import {API_URL} from '../utils';
 import './CustomizeSelection.scss';
+import MuscleSelection from '../components/MuscleSelection/MuscleSelection';
 
 function CustomizeSelection() {
     const [muscles, setGroup] = useState([]);
@@ -16,17 +17,9 @@ function CustomizeSelection() {
     return (
         <main>
             <h1 className="customize__title">Custom Workout</h1>
-            {muscles.map((group) => (
-            <Link to={"customize/" + group.id} key={group.id} className="customize__card">
-                <div className="customize__image-container">
-                    {
-                        (group.is_front === true)
-                        ? <img src="https://wger.de/static/images/muscles/muscular_system_front.svg" className="customize__full-body"/> 
-                        : <img src="https://wger.de/static/images/muscles/muscular_system_back.svg" className="customize__full-body"/>
-                    }
-                    <img src={`https://wger.de${group.image_url_main}`} className="customize__muscle-image"/>
-                </div>
-                <div className="customize__muscle">{group.name}</div>
+            {muscles.map((muscleGroup) => (
+            <Link to={"customize/" + muscleGroup.id} key={muscleGroup.id} className="customize__card">
+                <MuscleSelection group={muscleGroup}/>
             </Link>
             ))}
         </main>
