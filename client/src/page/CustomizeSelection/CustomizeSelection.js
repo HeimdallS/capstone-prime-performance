@@ -1,9 +1,9 @@
 import React, {useState, useEffect} from 'react';
 import {Link} from 'react-router-dom';
 import axios from 'axios';
-import {API_URL} from '../utils';
+import {API_URL} from '../../utils';
 import './CustomizeSelection.scss';
-import MuscleSelection from '../components/MuscleSelection/MuscleSelection';
+import MuscleSelection from '../../components/MuscleSelection/MuscleSelection';
 
 function CustomizeSelection() {
     const [muscles, setGroup] = useState([]);

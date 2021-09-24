@@ -1,0 +1,17 @@
+@use '../../partials/variables' as *;
+
+.exercise {
+    &__container {
+        display: flex;
+    }
+
+    &__image {
+        width: 8rem;
+        height: 5.43rem;
+    }
+
+    &__execute {
+        width: 100%;
+        height: 3.5rem;
+    }
+}
