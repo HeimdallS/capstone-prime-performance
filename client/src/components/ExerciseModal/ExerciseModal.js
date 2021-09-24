@@ -1,16 +1,21 @@
-import React from 'react'
+import React, {useState} from 'react'
+import Counter from '../Counter/Counter'
 import './ExerciseModal.scss'
-import * as AiIcon from "react-icons/ai";
 
-function ExerciseModal({showModal, exercise}) {
+function ExerciseModal({target, closeModal}) {
+
     return (
         <>
-            <div className="modal__background">
-                <div className="modal__wrapper" showModal={showModal}>
-                    <h2 className="modal__subheader">Name</h2>
-                    <h2 className="modal__subheader">Description</h2>
-                    <h2 className="modal__subheader">Sets</h2>
-                    <h2 className="modal__subheader">Reps</h2>
+            <div className="modal__container">
+                <img src={target.image} className="modal__image" />
+                <h2 className="modal__subheader">Name</h2>
+                    {target.name}
+                <h2 className="modal__subheader">Description</h2>
+                    {target.description}
+                <Counter reps={"Reps"} sets={"Sets"}/>
+                <div className="modal__button-container">
+                    <button className="modal__cancel" onClick={closeModal}>Cancel</button>
+                    <button className="modal__save">Save</button>
                 </div>
             </div>
         </>

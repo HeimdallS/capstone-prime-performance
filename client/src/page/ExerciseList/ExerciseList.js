@@ -1,5 +1,5 @@
 import axios from 'axios'
-import React, {useState, useEffect}  from 'react'
+import React, {useState}  from 'react'
 import { API_URL } from '../../utils';
 import exerciseData from '../../data/exercise-list.json'
 import './ExerciseList.scss';
@@ -21,6 +21,10 @@ function ExerciseList({match}) {
 
     function openModal() {
         setShowModal(!showModal);
+    }
+
+    function closeModal() {
+        setShowModal(false);
     }
 
     const exerciseInfo = (exercise) => {
@@ -57,22 +61,9 @@ function ExerciseList({match}) {
         ))}
         <Modal
         isOpen={showModal}
-        // onAfterOpen={afterOpenModal}
         onRequestClose={openModal}
-        // style={customStyles}
-        contentLabel="Example Modal"
-        // target={exercise}
         >
-        <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Hello</h2>
-        <button onClick={openModal}>close</button>
-        <div>{exercise.name}</div>
-        <form>
-          <input />
-          <button>tab navigation</button>
-          <button>stays</button>
-          <button>inside</button>
-          <button>the modal</button>
-        </form>
+            <ExerciseModal target={exercise} closeModal={closeModal}/>
         </Modal>
         <button className="exercise__execute">Execute Routine</button>
         </>
