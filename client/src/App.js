@@ -17,7 +17,6 @@ function App() {
       <Switch>
         <Route path='/' exact component={HomePage} />
         <Route path='/customize' exact component={CustomizeSelection} />
-        {/* <Route path='/customize/:exerciseId' exact render={(routerProps) => < ExerciseList {...routerProps} group={muscles} />}/> */}
         <Route path='/customize/:exerciseId' component = {ExerciseList}/>
       </Switch>
     </Router>
