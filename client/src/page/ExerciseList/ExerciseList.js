@@ -1,7 +1,6 @@
 import axios from 'axios'
 import React, {useState, useEffect}  from 'react'
 import { EXP_URL } from '../../utils';
-// import exerciseData from '../../data/exercise-list.json'
 import './ExerciseList.scss';
 import ExerciseModal from '../../components/ExerciseModal/ExerciseModal';
 import Modal from 'react-modal';
@@ -44,13 +43,11 @@ function ExerciseList({match}) {
         return muscles.muscles.includes(+match.params.exerciseId)
     })
 
-        console.log(filterRoutine)
     return (
-        
         <>
         {filterRoutine.map((workout) => (
             <div className="exercise__container" key={workout.id} onClick={() => exerciseInfo(workout)}>
-                <img src={workout.image} className="exercise__image"></img>
+                <img src={workout.image} className="exercise__image" alt="workout visual"></img>
                 <h2 className="exercise__name">{workout.name}</h2>
             </div> 
          ))}
@@ -58,7 +55,7 @@ function ExerciseList({match}) {
         isOpen={showModal}
         onRequestClose={openModal}
         >
-            <ExerciseModal target={singleExercise} closeModal={closeModal}/>
+            <ExerciseModal selectedEx={singleExercise} closeModal={closeModal}/>
         </Modal>
         <button className="exercise__execute">Execute Routine</button>
         </>

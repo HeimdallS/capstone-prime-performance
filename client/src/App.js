@@ -8,6 +8,7 @@ import HomePage from './page/HomePage';
 import NavBar from './components/NavBar/NavBar.js';
 import CustomizeSelection from './page/CustomizeSelection/CustomizeSelection';
 import ExerciseList from './page/ExerciseList/ExerciseList';
+import Shuffle from './page/Shuffle/Shuffle';
 
 function App() {
 
@@ -17,7 +18,8 @@ function App() {
       <Switch>
         <Route path='/' exact component={HomePage} />
         <Route path='/customize' exact component={CustomizeSelection} />
-        <Route path='/customize/:exerciseId' component = {ExerciseList}/>
+        <Route path='/customize/:exerciseId' component = {ExerciseList} />
+        <Route path='/shuffle' component = {Shuffle} />
       </Switch>
     </Router>
   );

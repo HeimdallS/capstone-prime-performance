@@ -1,21 +1,75 @@
+import axios from 'axios'
 import React, {useState} from 'react'
-import Counter from '../Counter/Counter'
 import './ExerciseModal.scss'
+import {EXP_URL} from '../../utils';
 
-function ExerciseModal({target, closeModal}) {
+function ExerciseModal({selectedEx, closeModal}) {
+    const[counterRep, setCounterRep] = useState(0);
+    const[counterSet, setCounterSet] = useState(0);
+
+    function decreaseRep() {
+        setCounterRep(prevCount => prevCount - 1)
+    }
+
+    function increaseRep() {
+        setCounterRep(prevCount => prevCount + 1)
+    }
+
+    function decreaseSet() {
+        setCounterSet(prevCount => prevCount - 1)
+    }
+
+    function increaseSet() {
+        setCounterSet(prevCount => prevCount + 1)
+    }
+
+     const handleSubmit = (e) => {
+        const routine = {
+            name: selectedEx.name,
+            reps: counterRep,
+            sets: counterSet,
+        }
+    
+        if(counterRep !== 0 && counterSet !== 0) {
+            axios({
+                method: "POST",
+                url: (`${EXP_URL}saved`),
+                data: routine,
+            }).then (response => {
+                console.log(response);
+            })
+        } else {
+            alert("Reps and Sets cannot be kept at 0")
+        }
+    }
 
     return (
         <>
             <div className="modal__container">
-                <img src={target.image} className="modal__image" />
+                <div className="modal__image-container">
+                    <img src={selectedEx.image} className="modal__image" alt="exercise visual"/>
+                </div>
                 <h2 className="modal__subheader">Name</h2>
-                    {target.name}
+                    <p name="name" className="modal__info">{selectedEx.name}</p>
                 <h2 className="modal__subheader">Description</h2>
-                    {target.description}
-                <Counter reps={"Reps"} sets={"Sets"}/>
+                    <p name="name" className="modal__info">{selectedEx.description}</p>
+                <div className="modal__range-container">
+                    <div className="modal__sets">
+                        <h2 className="modal__subheader">Sets</h2>
+                        <button onClick={decreaseSet} className="modal__subtract">-</button>
+                        <span className="modal__counter" name="sets">{counterSet}</span>
+                        <button onClick={increaseSet} className="modal__add">+</button>
+                    </div>
+                    <div className="modal__reps">
+                        <h2 className="modal__subheader">Reps</h2>
+                        <button onClick={() => decreaseRep()} className="modal__subtract">-</button>
+                        <span className="modal__counter" name="reps">{counterRep}</span>
+                        <button onClick={() => increaseRep()} className="modal__add">+</button>
+                    </div>
+                </div>
                 <div className="modal__button-container">
-                    <button className="modal__cancel" onClick={closeModal}>Cancel</button>
-                    <button className="modal__save">Save</button>
+                    <button className="modal__cancel" type="reset" onClick={closeModal}>Cancel</button>
+                    <button className="modal__save" type="submit" onClick={() => handleSubmit()}>Save</button>
                 </div>
             </div>
         </>

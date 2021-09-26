@@ -7,8 +7,43 @@
         flex-direction: column;
     }
 
-    &__image {
+    &__image-container {
         width: 100%;
-        height: 13rem;
+        display: flex;
+        justify-content: center;
+    }
+
+    &__image {
+        width: 12rem;
+        height: 12rem;
+    }
+
+    &__subheader {
+        margin: 0.5rem 0rem;
+        font-size: 1.3rem;
+        color: $secondary-background;
+    }
+
+    &__info {
+        margin: 0;
+        font-size: 0.8rem;
+    }
+
+    &__range-container {
+        display: flex;
+        margin-bottom: 3rem;
+    }
+
+    &__sets {
+        width: 50%;
+    }
+
+    &__counter {
+        margin: 0 1.5rem;
+    }
+
+    &__button-container {
+        display: flex;
+        justify-content: space-around;
     }
 }
