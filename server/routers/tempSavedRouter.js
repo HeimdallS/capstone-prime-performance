@@ -4,8 +4,8 @@ const router = express.Router();
 const fs = require('fs');
 const {v4: uuid} = require('uuid');
 
-const savedPath = "./data/saved-list.json"
-const directedSavedPath = require("../data/saved-list.json")
+const savedPath = "./data/temp-saved-list.json"
+const directedSavedPath = require("../data/temp-saved-list.json")
 
 const readSaved = () => {
     const readSavedData = fs.readFileSync(savedPath);
@@ -18,7 +18,9 @@ router.post('/', (req, res) => {
     const routine = directedSavedPath;
     const newRoutine = {
         id: uuid(),
+        image: req.body.image,
         name: req.body.name,
+        description: req.body.description,
         sets: req.body.sets,
         reps: req.body.reps,
     }
@@ -30,7 +32,6 @@ router.post('/', (req, res) => {
             res.status(201).send(NewRoutine)
         }
     });
-    // return res.status(201).json(newRoutine);
 })
 
 router.get('/', (_req, res) => {

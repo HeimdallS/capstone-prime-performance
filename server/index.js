@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const cors = require("cors");
 const customizeRouter = require('./routers/customizeRouter');
-const savedRouter=require('./routers/savedRouter');
+const tempSavedRouter=require('./routers/tempSavedRouter');
 const PORT = 8000;
 
 app.use(express.json());
@@ -14,7 +14,7 @@ app.use(cors());
 // })
 
 app.use('/customize', customizeRouter);
-app.use('/savedfile', savedRouter);
+app.use('/tempsave', tempSavedRouter);
 
 app.listen(PORT, () => {
     console.log("Server is good to go")

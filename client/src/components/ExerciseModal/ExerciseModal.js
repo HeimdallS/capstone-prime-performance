@@ -25,7 +25,9 @@ function ExerciseModal({selectedEx, closeModal}) {
 
      const handleSubmit = (e) => {
         const routine = {
+            image: selectedEx.image,
             name: selectedEx.name,
+            description: selectedEx.description,
             reps: counterRep,
             sets: counterSet,
         }
@@ -33,7 +35,7 @@ function ExerciseModal({selectedEx, closeModal}) {
         if(counterRep !== 0 && counterSet !== 0) {
             axios({
                 method: "POST",
-                url: (`${EXP_URL}savedfile`),
+                url: (`${EXP_URL}tempsave`),
                 data: routine,
             }).then (response => {
                 console.log(response);
