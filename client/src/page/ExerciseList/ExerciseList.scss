@@ -9,14 +9,20 @@
     border: 1px solid $secondary-background;
   }
 
+  &__image-container {
+    width: 8.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
   &__image {
     width: 8rem;
-    height: 5.43rem;
+    height: 7rem;
   }
 
   &__name {
     font-weight: 500;
-    margin: 0 0 0 1.5rem;
     padding: 1rem 0 1rem 1.5rem;
     border-left: 2px solid $secondary-background;
   }

@@ -1,5 +1,5 @@
 import axios from 'axios'
-import React, {useState, useEffect}  from 'react'
+import React, {useState, useEffect} from 'react'
 import { EXP_URL } from '../../utils';
 import './ExerciseList.scss';
 import ExerciseModal from '../../components/ExerciseModal/ExerciseModal';
@@ -47,7 +47,9 @@ function ExerciseList({match}) {
         <main className="exercise">
             {filterRoutine.map((workout) => (
                 <div className="exercise__container" key={workout.id} onClick={() => exerciseInfo(workout)}>
-                    <img src={workout.image} className="exercise__image" alt="workout visual"></img>
+                    <div className="exercise__image-container">
+                        <img src={workout.image} className="exercise__image" alt="workout visual"></img>
+                    </div>
                     <h2 className="exercise__name">{workout.name}</h2>
                 </div> 
             ))}

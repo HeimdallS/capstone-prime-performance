@@ -9,6 +9,7 @@ import NavBar from './components/NavBar/NavBar.js';
 import CustomizeSelection from './page/CustomizeSelection/CustomizeSelection';
 import ExerciseList from './page/ExerciseList/ExerciseList';
 import Shuffle from './page/Shuffle/Shuffle';
+import Execution from './page/Execution/Execution';
 
 function App() {
 
@@ -20,6 +21,7 @@ function App() {
         <Route path='/customize' exact component={CustomizeSelection} />
         <Route path='/customize/:exerciseId' component = {ExerciseList} />
         <Route path='/shuffle' component = {Shuffle} />
+        <Route path='/execute' component = {Execution} />
       </Switch>
     </Router>
   );

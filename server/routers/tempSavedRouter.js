@@ -29,14 +29,14 @@ router.post('/', (req, res) => {
         if (err)
             console.log(err);
         else {
-            res.status(201).send(NewRoutine)
+            res.status(201).send(newRoutine)
         }
     });
 })
 
 router.get('/', (_req, res) => {
     try {
-        const saved = readSaved(); 
+        const saved = readSaved(savedPath); 
         return res.status(200).json(saved);
     } catch(err) {
         return res.status(500).json({error: "Unable to proceed with request"})
