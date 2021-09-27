@@ -18,7 +18,7 @@ function NavBar() {
                 <NavLink to="#" className="burger__bar">
                     <AiIcon.AiOutlineBars onClick={showSidebar}/>
                 </NavLink>
-                <NavLink to='/' className="header__title">Prime Performance</NavLink>
+                <NavLink to='/' className="burger__title">PRIME PERFORMANCE</NavLink>
             </div>
             <nav className={sidebar ? 'burger__menu burger__menu--active' : 'burger__menu'}>
                 <ul className="burger__menu-items" onClick={showSidebar}>

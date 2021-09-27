@@ -33,13 +33,13 @@ function ExerciseModal({selectedEx, closeModal}) {
         if(counterRep !== 0 && counterSet !== 0) {
             axios({
                 method: "POST",
-                url: (`${EXP_URL}saved`),
+                url: (`${EXP_URL}savedfile`),
                 data: routine,
             }).then (response => {
                 console.log(response);
             })
         } else {
-            alert("Reps and Sets cannot be kept at 0")
+            alert("Reps and Sets cannot be kept at or below 0")
         }
     }
 
@@ -56,15 +56,15 @@ function ExerciseModal({selectedEx, closeModal}) {
                 <div className="modal__range-container">
                     <div className="modal__sets">
                         <h2 className="modal__subheader">Sets</h2>
-                        <button onClick={decreaseSet} className="modal__subtract">-</button>
-                        <span className="modal__counter" name="sets">{counterSet}</span>
-                        <button onClick={increaseSet} className="modal__add">+</button>
+                        <button onClick={decreaseSet} className="modal__counter">-</button>
+                        <span className="modal__integer" name="sets">{counterSet}</span>
+                        <button onClick={increaseSet} className="modal__counter">+</button>
                     </div>
                     <div className="modal__reps">
                         <h2 className="modal__subheader">Reps</h2>
-                        <button onClick={() => decreaseRep()} className="modal__subtract">-</button>
-                        <span className="modal__counter" name="reps">{counterRep}</span>
-                        <button onClick={() => increaseRep()} className="modal__add">+</button>
+                        <button onClick={() => decreaseRep()} className="modal__counter">-</button>
+                        <span className="modal__integer" name="reps">{counterRep}</span>
+                        <button onClick={() => increaseRep()} className="modal__counter">+</button>
                     </div>
                 </div>
                 <div className="modal__button-container">

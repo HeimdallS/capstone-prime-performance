@@ -1,39 +1,39 @@
-@use '../../partials/variables' as *;
+@use "../../partials/variables" as *;
 
 .customize {
-    &__card {
-        display: inline-flex;
-        align-items: center;
-        text-decoration: none;
-        margin-bottom:1rem;
-        border: 1px solid $secondary-background;
-        width: 45%;
-        height: 8.5rem;
-        margin-left: 1.5rem;
-    }
+  &__card {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    margin-bottom: 1rem;
+    border: 1px solid $secondary-background;
+    width: 45%;
+    height: 8.5rem;
+    margin-left: 1.5rem;
+  }
 
-    &__full-body {
-        width: 4rem;
-    }
+  &__full-body {
+    width: 4rem;
+  }
 
-    &__image-container {
-        display: flex;
-        position: relative;
-        z-index: -1;
-        border-right: 1px solid $secondary-background;
-        width: 7rem;
-        justify-content: center;
-    }
+  &__image-container {
+    display: flex;
+    position: relative;
+    z-index: -1;
+    border-right: 1px solid $secondary-background;
+    width: 7rem;
+    justify-content: center;
+  }
 
-    &__muscle-image {
-        position: absolute;
-        width: 4rem;
-    }
+  &__muscle-image {
+    position: absolute;
+    width: 4rem;
+  }
 
-    &__muscle {
-        text-transform: capitalize;
-        margin-left: 2rem;
-        font-size: 1.4rem;
-        color: $primary-text;
-    }
+  &__muscle {
+    text-transform: capitalize;
+    margin: 0 auto;
+    font-size: 1.4rem;
+    color: $primary-text;
+  }
 }

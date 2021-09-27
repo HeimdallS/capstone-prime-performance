@@ -44,21 +44,21 @@ function ExerciseList({match}) {
     })
 
     return (
-        <>
-        {filterRoutine.map((workout) => (
-            <div className="exercise__container" key={workout.id} onClick={() => exerciseInfo(workout)}>
-                <img src={workout.image} className="exercise__image" alt="workout visual"></img>
-                <h2 className="exercise__name">{workout.name}</h2>
-            </div> 
-         ))}
-        <Modal
-        isOpen={showModal}
-        onRequestClose={openModal}
-        >
-            <ExerciseModal selectedEx={singleExercise} closeModal={closeModal}/>
-        </Modal>
-        <button className="exercise__execute">Execute Routine</button>
-        </>
+        <main className="exercise">
+            {filterRoutine.map((workout) => (
+                <div className="exercise__container" key={workout.id} onClick={() => exerciseInfo(workout)}>
+                    <img src={workout.image} className="exercise__image" alt="workout visual"></img>
+                    <h2 className="exercise__name">{workout.name}</h2>
+                </div> 
+            ))}
+            <Modal
+            isOpen={showModal}
+            onRequestClose={openModal}
+            >
+                <ExerciseModal selectedEx={singleExercise} closeModal={closeModal}/>
+            </Modal>
+            <button className="exercise__execute">Execute</button>
+        </main>
     )
 }
 

@@ -6,7 +6,8 @@ import axios from 'axios';
 
 function Shuffle() {
     const [muscles, setGroup] = useState([]);
-    const [exercise, setExercise] = useState([])
+    const [exercise, setExercise] = useState([]);
+    const [targetMuscle, setTargetMuscle] = useState([]);
 
     useEffect(() => {
         axios.get(`${API_URL}muscle`).then((response) => {
@@ -30,6 +31,11 @@ function Shuffle() {
         return array;
     }
 
+    // const handleClick = (clickedMuscleGroup) => {
+    //     setTargetMuscle(clickedMuscleGroup)
+    //     const 
+    // }
+
     // const exerciseRoutine = exercise;
     // for(let i = 0, length = exerciseRoutine.length; i < length; i ++) {
     // console.log(exerciseRoutine[i].muscles)
@@ -38,7 +44,7 @@ function Shuffle() {
     const handleEvent = (e) => {
         e.prevenDefault()
 
-
+        shuffleArray(exercise)
     }
 
     return (

@@ -1,49 +1,88 @@
-@use '../../partials/variables' as *;
+@use "../../partials/variables" as *;
 
 .modal {
-    &__container {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-    }
+  &__container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
 
-    &__image-container {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-    }
+  &__image-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
 
-    &__image {
-        width: 12rem;
-        height: 12rem;
-    }
+  &__image {
+    width: 12rem;
+    height: 12rem;
+  }
 
-    &__subheader {
-        margin: 0.5rem 0rem;
-        font-size: 1.3rem;
-        color: $secondary-background;
-    }
+  &__subheader {
+    margin: 0.5rem 0rem;
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: $secondary-background;
+  }
 
-    &__info {
-        margin: 0;
-        font-size: 0.8rem;
-    }
+  &__info {
+    margin: 0;
+    font-size: 0.8rem;
+  }
 
-    &__range-container {
-        display: flex;
-        margin-bottom: 3rem;
-    }
+  &__range-container {
+    display: flex;
+    margin-bottom: 3rem;
+  }
 
-    &__sets {
-        width: 50%;
-    }
+  &__sets {
+    width: 50%;
+  }
 
-    &__counter {
-        margin: 0 1.5rem;
-    }
+  &__integer {
+    margin: 0 1.5rem;
+  }
 
-    &__button-container {
-        display: flex;
-        justify-content: space-around;
+  &__counter {
+    border: none;
+    background-color: $secondary-background;
+    padding: 0;
+    width: 1.5rem;
+    height: 1.5rem;
+    color: $secondary-text;
+    border-radius: 50%;
+
+    &:active {
+      background-color: $primary-background;
     }
+  }
+
+  &__button-container {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  &__cancel {
+    border: none;
+    background-color: $secondary-background;
+    color: $secondary-text;
+    width: 5rem;
+    height: 2rem;
+
+    &:active {
+      background-color: $primary-background;
+    }
+  }
+
+  &__save {
+    border: none;
+    background-color: $secondary-background;
+    color: $secondary-text;
+    width: 5rem;
+    height: 2rem;
+
+    &:active {
+      background-color: $primary-background;
+    }
+  }
 }
