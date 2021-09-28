@@ -3,7 +3,7 @@ import React, {useState} from 'react'
 import './ExerciseModal.scss'
 import {EXP_URL} from '../../utils';
 
-function ExerciseModal({selectedEx, closeModal}) {
+function ExerciseModal({selectedEx, closeModal, routineTitle, onSave}) {
     const[counterRep, setCounterRep] = useState(0);
     const[counterSet, setCounterSet] = useState(0);
 
@@ -24,27 +24,31 @@ function ExerciseModal({selectedEx, closeModal}) {
     }
 
      const handleSubmit = (e) => {
-        const routine = {
-            routineTitle:"",
-            image: selectedEx.image,
-            id: selectedEx.id,
-            name: selectedEx.name,
-            description: selectedEx.description,
-            reps: counterRep,
-            sets: counterSet,
-        }
+         onSave({
+             reps: counterRep,
+             sets: counterSet,
+         })
+        // const routine = {
+        //     title: {routineTitle},
+        //     image: selectedEx.image,
+        //     id: selectedEx.id,
+        //     name: selectedEx.name,
+        //     description: selectedEx.description,
+        //     reps: counterRep,
+        //     sets: counterSet,
+        // }
     
-        if(counterRep !== 0 && counterSet !== 0) {
-            axios({
-                method: "POST",
-                url: (`${EXP_URL}tempsave`),
-                data: routine,
-            }).then (response => {
-                console.log(response);
-            })
-        } else {
-            alert("Reps and Sets cannot be kept at or below 0")
-        }
+        // if(counterRep !== 0 && counterSet !== 0) {
+        //     axios({
+        //         method: "POST",
+        //         url: (`${EXP_URL}tempsave`),
+        //         data: routine,
+        //     }).then (response => {
+        //         console.log(response);
+        //     })
+        // } else {
+        //     alert("Reps and Sets cannot be kept at or below 0")
+        // }
     }
 
     return (

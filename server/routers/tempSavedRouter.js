@@ -16,11 +16,9 @@ const readSaved = () => {
 router.post('/', (req, res) => {
     console.log("req test", req.body)
     const routine = readSaved();
-    // if list of routines contains routineTitle, append routine to routineList,
-    // else create new routine
     const newRoutine = {
         // id: uuid(),
-        // title: req.body.title,
+            title: req.body.title,
             id: req.body.id,
             image: req.body.image,
             name: req.body.name,
