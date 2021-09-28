@@ -4,18 +4,29 @@ import {EXP_URL} from '../../utils';
 import './Execution.scss';
 
 function Execute() {
-    const [executedRoutine, setExecutedRoutine] = useState([])
+    const [executedRoutine, setExecutedRoutine] = useState(null)
 
     useEffect(() => {
         axios.get(`${EXP_URL}tempsave`).then((response) => {
-            console.log(response.data);
+            console.log("randalfhdalsfhasd", response.data);
             setExecutedRoutine(response.data)
         })
     }, []);
 
+    console.log(executedRoutine)
+
+    const handleRoutineDelete = () => {
+        axios.delete(`${EXP_URL}tempsave`)
+        .then(() => {
+            setExecutedRoutine(null);
+        })
+    }
+    
+    if (executedRoutine) {
+        console.log(executedRoutine)
     return (
         <div>
-            {executedRoutine.map((temp) => (
+            {executedRoutine.routineList.map((temp) => (
                 <div className="routine__container">
                     <div className="routine__image-container">
                         <img src={temp.image} className="routine__image" />
@@ -35,8 +46,14 @@ function Execute() {
                     </div>
                 </div>
             ))}
+            <div className="routine__button-container">
+                <button className="routine__cancel" onClick={() => handleRoutineDelete()}>Cancel</button>
+                <button className="routine__submit" type="submit">Submit</button>
+            </div>
         </div>
     )
 }
-
+else {
+    return null
+}}
 export default Execute

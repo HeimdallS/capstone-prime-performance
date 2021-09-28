@@ -5,7 +5,7 @@ const fs = require('fs');
 const {v4: uuid} = require('uuid');
 
 const savedPath = "./data/temp-saved-list.json"
-const directedSavedPath = require("../data/temp-saved-list.json")
+// const directedSavedPath = require("../data/temp-saved-list.json")
 
 const readSaved = () => {
     const readSavedData = fs.readFileSync(savedPath);
@@ -15,16 +15,21 @@ const readSaved = () => {
 
 router.post('/', (req, res) => {
     console.log("req test", req.body)
-    const routine = directedSavedPath;
+    const routine = readSaved();
+    // if list of routines contains routineTitle, append routine to routineList,
+    // else create new routine
     const newRoutine = {
-        id: uuid(),
-        image: req.body.image,
-        name: req.body.name,
-        description: req.body.description,
-        sets: req.body.sets,
-        reps: req.body.reps,
+        // id: uuid(),
+        // title: req.body.title,
+            id: req.body.id,
+            image: req.body.image,
+            name: req.body.name,
+            description: req.body.description,
+            sets: req.body.sets,
+            reps: req.body.reps,
     }
-    routine.push(newRoutine);
+
+    routine.routineList.push(newRoutine);
     fs.writeFile(`${savedPath}`, JSON.stringify(routine), (err) => {
         if (err)
             console.log(err);
@@ -45,12 +50,32 @@ router.get('/', (_req, res) => {
 
 router.get('/:savedId', (req, res) => {
     const saved = readSaved(); 
-
     const savedExercise = saved.find((saved) => saved.id === req.params.id);
     if (!savedExercise) {
         return res.status(404).send("Exercise not found");
     }
     res.json(savedExercise)
+})
+
+// add saved id
+router.delete('/', (req,res) => { 
+    console.log("delete")
+    try {
+        const template = {
+            "title": null,
+            "id": null,
+            "routineList": []
+          }
+        const routine = readSaved(savedPath);
+        // const {savedId} = req.params;
+        // const filteredRoutine = routine.filter(saved => saved.id !== savedId)
+        fs.writeFileSync(`${savedPath}`, JSON.stringify(template))
+        res.status(200).json({message:'Deleted'})
+    }
+    catch {
+        console.log("caught")
+        res.status(500).json({message:'internal error'})
+    }
 })
 
 module.exports = router; 

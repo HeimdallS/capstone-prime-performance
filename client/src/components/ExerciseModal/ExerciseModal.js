@@ -8,7 +8,7 @@ function ExerciseModal({selectedEx, closeModal}) {
     const[counterSet, setCounterSet] = useState(0);
 
     function decreaseRep() {
-        setCounterRep(prevCount => prevCount - 1)
+        setCounterRep(prevCount => !prevCount ? 0 : prevCount - 1)
     }
 
     function increaseRep() {
@@ -16,7 +16,7 @@ function ExerciseModal({selectedEx, closeModal}) {
     }
 
     function decreaseSet() {
-        setCounterSet(prevCount => prevCount - 1)
+        setCounterSet(prevCount => !prevCount ? 0 : prevCount - 1)
     }
 
     function increaseSet() {
@@ -25,7 +25,9 @@ function ExerciseModal({selectedEx, closeModal}) {
 
      const handleSubmit = (e) => {
         const routine = {
+            routineTitle:"",
             image: selectedEx.image,
+            id: selectedEx.id,
             name: selectedEx.name,
             description: selectedEx.description,
             reps: counterRep,

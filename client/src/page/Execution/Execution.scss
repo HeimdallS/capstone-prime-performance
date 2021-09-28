@@ -47,4 +47,33 @@
   &__counter {
     margin: 0;
   }
+
+  &__button-container {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  &__cancel {
+    border: none;
+    background-color: $secondary-background;
+    color: $secondary-text;
+    width: 5rem;
+    height: 2rem;
+
+    &:active {
+      background-color: $primary-background;
+    }
+  }
+
+  &__save {
+    border: none;
+    background-color: $secondary-background;
+    color: $secondary-text;
+    width: 5rem;
+    height: 2rem;
+
+    &:active {
+      background-color: $primary-background;
+    }
+  }
 }

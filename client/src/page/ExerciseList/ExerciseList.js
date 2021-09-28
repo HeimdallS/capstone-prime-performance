@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React, {useState, useEffect} from 'react'
 import { EXP_URL } from '../../utils';
+import {Link} from 'react-router-dom';
 import './ExerciseList.scss';
 import ExerciseModal from '../../components/ExerciseModal/ExerciseModal';
 import Modal from 'react-modal';
@@ -59,7 +60,7 @@ function ExerciseList({match}) {
             >
                 <ExerciseModal selectedEx={singleExercise} closeModal={closeModal}/>
             </Modal>
-            <button className="exercise__execute">Execute</button>
+            <Link to = '/execute' className="exercise__execute">Execute</Link>
         </main>
     )
 }
