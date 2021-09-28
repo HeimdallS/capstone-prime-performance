@@ -11,6 +11,7 @@ Modal.setAppElement('#root');
 function ExerciseList({match}) {
 
     const [showModal, setShowModal] = useState(false)
+    const [showSubmitModal, setShowSubmitModal] = useState(false)
     const [exercise, setExercise] = useState([])
     const [singleExercise, setSingleExercise] = useState(null)
 
@@ -26,6 +27,14 @@ function ExerciseList({match}) {
 
     function closeModal() {
         setShowModal(false);
+    }
+
+    function openSubmitModal() {
+        setShowSubmitModal(true)
+    }
+
+    function closeSubmitModal() {
+        setShowSubmitModal(false)
     }
 
     const exerciseInfo = (workout) => {
@@ -60,7 +69,18 @@ function ExerciseList({match}) {
             >
                 <ExerciseModal selectedEx={singleExercise} closeModal={closeModal}/>
             </Modal>
-            <Link to = '/execute' className="exercise__execute">Execute</Link>
+            <button to='/execute' className="exercise__execute" onClick={openSubmitModal}>Execute</button>
+            <Modal
+            isOpen={showSubmitModal}
+            onRequestClose={closeSubmitModal}
+            className="exercise__submit-modal"
+            >
+                <div className="exercise__input-container">
+                    <div className="exercise__title-header">Routine Title:</div>
+                    <input type="text" className="exercise__title" name="title"></input>
+                </div>
+                    <Link to="/execute" className="exercise__submit-button">Submit</Link>
+            </Modal>
         </main>
     )
 }

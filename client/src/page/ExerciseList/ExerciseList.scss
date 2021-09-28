@@ -47,4 +47,53 @@
       background-color: $primary-background;
     }
   }
+
+  &__submit-modal {
+    position: absolute;
+    top: 140px;
+    right: 80px;
+    bottom: 200px;
+    left: 80px;
+    border: 1px solid rgba(204, 204, 204);
+    border-radius: 4px;
+    outline: none;
+    background-color: #fff;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__input-container {
+    display: flex;
+    margin-bottom: 1.3rem;
+  }
+
+  &__title-header {
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: $secondary-background;
+    margin-right: 0.4rem;
+  }
+
+  &__title {
+    width: 15rem;
+    border: 1px solid rgba(204, 204, 204);
+    outline: none;
+  }
+
+  &__submit-button {
+    text-decoration: none;
+    background-color: $secondary-background;
+    color: $secondary-text;
+    width: 5rem;
+    height: 2rem;
+    text-align: center;
+    padding: 5px;
+
+    &:active {
+      background-color: $primary-background;
+    }
+  }
 }
