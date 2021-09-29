@@ -1,0 +1,22 @@
+@use "../../partials/variables" as *;
+
+.saved {
+  &__container {
+    display: flex;
+    margin-left: 3rem;
+  }
+
+  &__card {
+    text-decoration: none;
+    color: $primary-text;
+    font-size: 1.3rem;
+    font-weight: 500;
+    border: 3px solid $secondary-background;
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+
+    &:active {
+      border-color: $primary-background;
+    }
+  }
+}

@@ -10,6 +10,8 @@ import CustomizeSelection from './page/CustomizeSelection/CustomizeSelection';
 import ExerciseList from './page/ExerciseList/ExerciseList';
 import Shuffle from './page/Shuffle/Shuffle';
 import Execution from './page/Execution/Execution';
+import Saved from './page/SavedPage/Saved';
+import SavedWorkout from './components/SavedWorkout/SavedWorkout';
 
 function App() {
 
@@ -22,6 +24,8 @@ function App() {
         <Route path='/customize/:exerciseId' component = {ExerciseList} />
         <Route path='/shuffle' component = {Shuffle} />
         <Route path='/execute' component = {Execution} />
+        <Route path='/saved' exact component = {Saved} />
+        <Route path='/saved/:savedId' component = {SavedWorkout} />
       </Switch>
     </Router>
   );

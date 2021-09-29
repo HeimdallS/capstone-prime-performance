@@ -17,7 +17,7 @@ export const NavBarData = [
     },
     {
         title: 'Saved',
-        path: '/Saved',
+        path: '/saved',
         icon: <GiIcon.GiSaveArrow />,
         className:"burger__path"
     },
