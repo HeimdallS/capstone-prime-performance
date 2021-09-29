@@ -22,6 +22,10 @@ const readSaved = () => {
 
 const randomizeNumber = (maxNumber) => Math.floor(Math.random() * maxNumber)
 
+function getRndInteger(min, max) {
+    return Math.floor(Math.random() * (max - min) ) + min;
+  }
+
 router.post('/', (req, res) => {
     const routines = readSaved();
     const title = req.body.title
@@ -29,7 +33,10 @@ router.post('/', (req, res) => {
     const allExercises = getAllExercises().results
     const randomizedExercises = muscleIds.map(id => {
         const filteredExercises = allExercises.filter(exercise => exercise.muscles.includes(id))
-        return filteredExercises[randomizeNumber(filteredExercises.length)]
+        return {...filteredExercises[randomizeNumber(filteredExercises.length)], 
+            reps: getRndInteger(10, 50),
+            sets: getRndInteger(1, 5),
+        }
     })
     
     const newData = {
@@ -45,17 +52,9 @@ router.post('/', (req, res) => {
     fs.writeFile(`${savedPath}`, JSON.stringify(routines), (err) => {
         if (err)
             console.log(err);
-        else {
-            res.status(201).send(newRoutine)
-        }
     });
 
     return res.status(200).json(newData)
-
-    //We have the muscle id's 
-    // for each muscle id we have, we want to get a list of all eligible exercises
-    // from the list of eligible exercises, we will randomly pick 3 
-    // for each exercise, we will randomly generate a random number of sets and reps
 })
 
 module.exports = router; 
