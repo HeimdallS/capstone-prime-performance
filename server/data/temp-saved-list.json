@@ -19,5 +19,113 @@
         "sets": 1
       }
     ]
+  },
+  {
+    "id": "699618c1-fe4e-43e7-8136-dbf873c6998f",
+    "title": "Test 8",
+    "routineList": [
+      {
+        "id": 393,
+        "uuid": "6ae341ba-f941-44b5-9d59-b0fba42c0980",
+        "name": "Upper Body",
+        "exercise_base": 687,
+        "status": "2",
+        "description": "Full workout of the upper arms body n chest. Focusing on the core",
+        "creation_date": "2016-04-18",
+        "category": 11,
+        "muscles": [2, 4],
+        "muscles_secondary": [9, 5],
+        "equipment": [1],
+        "language": 2,
+        "license": 2,
+        "license_author": "Vazco",
+        "variations": []
+      },
+      {
+        "id": 291,
+        "uuid": "3329b890-685a-475d-b8e5-42362711b445",
+        "name": "Hercules Pillars",
+        "exercise_base": 284,
+        "status": "2",
+        "description": "Grab two cables stand in the middle so both have tension and hold",
+        "creation_date": "2014-11-02",
+        "category": 8,
+        "muscles": [1, 13, 5],
+        "muscles_secondary": [2],
+        "equipment": [],
+        "language": 2,
+        "license": 1,
+        "license_author": "GrosseHund",
+        "variations": []
+      },
+      {
+        "id": 626,
+        "uuid": "85b2f07b-2ce3-4c85-82ab-474a6e5620b2",
+        "name": "Muscle up",
+        "exercise_base": 423,
+        "status": "2",
+        "description": "The body is then explosively pulled up by the arms in a radial pull-up, with greater speed than a regular pull-up. When the bar approaches the upper chest, the wrists are swiftly flexed to bring the forearms above the bar. The body is leaned forward, and the elbows are straightened by activating the triceps. The routine is considered complete when the bar is at the level of the waist and the arms are fully straight.To dismount, the arms are bent at the elbow, and the body is lowered to the floor, and the exercise can be repeated.As a relatively advanced exercise, muscle-ups are typically first learned with an assistive kip. The legs swing (kip) up and provide momentum to assist in the explosive upward force needed to ascend above the bar. More advanced athletes can perform a strict variation of the muscle-up which is done slowly, without any kip. This variation begins with a still dead hang and uses isometric muscle contraction to ascend above the bar in a slow, controlled fashion.",
+        "creation_date": "2019-02-01",
+        "category": 12,
+        "muscles": [1, 11],
+        "muscles_secondary": [],
+        "equipment": [6],
+        "language": 2,
+        "license": 2,
+        "license_author": "arson",
+        "variations": []
+      },
+      {
+        "id": 307,
+        "uuid": "1b8b1657-40fd-4e3b-97b7-1c79b1079f8e",
+        "name": "Bear Walk",
+        "exercise_base": 57,
+        "status": "2",
+        "description": "-Rest your weight on your palms and the balls of your feet, not dissimilar to normal pushup position-Move by stepping with your R palm and L foot, then your L palm and R foot.  Basically, walk like a lumbering bear.-Move as fast as you can.  Measure your reps/sets in either distance (i.e. 40 yards) or time (i.e. 45 seconds)-Works your Pecs, Deltoids, Triceps, Traps, Lats, Abs and Lower Back, Hip Flexors, Quads, Glutes and Calves",
+        "creation_date": "2015-02-06",
+        "category": 11,
+        "muscles": [2, 7, 4, 6, 3, 15, 5],
+        "muscles_secondary": [8, 12, 14, 10, 9],
+        "equipment": [7],
+        "language": 2,
+        "license": 2,
+        "license_author": "nate303303",
+        "variations": []
+      },
+      {
+        "id": 127,
+        "uuid": "61271a8e-6a00-4898-8dc3-ea9ef913f25e",
+        "name": "Upright Row, SZ-bar",
+        "exercise_base": 693,
+        "status": "2",
+        "description": "Stand straight, your feet are shoulder-width apart. Hold the SZ-bar with an overhand grip on your thighs, the arms are stretched. Lift the bar close to the body till your chin. The elbows point out so that at the highest point they form a V. Make here a short pause before going slowly down and repeating the movement.",
+        "creation_date": "2013-05-05",
+        "category": 13,
+        "muscles": [2, 9],
+        "muscles_secondary": [1],
+        "equipment": [2],
+        "language": 2,
+        "license": 1,
+        "license_author": "wger.de",
+        "variations": []
+      },
+      {
+        "id": 89,
+        "uuid": "f1b5e525-6232-4d60-a243-9b2cd6c55298",
+        "name": "Triceps Extensions on Cable",
+        "exercise_base": 659,
+        "status": "2",
+        "description": "Grab the cable, stand with your feet shoulder wide, keep your back straight and lean forward a little. Push the bar down, making sure the elbows don't move during the exercise. Rotate your hands outwards at the very end and go back to the initial position without pause.",
+        "creation_date": "2013-05-05",
+        "category": 8,
+        "muscles": [5],
+        "muscles_secondary": [],
+        "equipment": [],
+        "language": 2,
+        "license": 1,
+        "license_author": "wger.de",
+        "variations": [344, 274, 89, 90]
+      }
+    ]
   }
 ]
