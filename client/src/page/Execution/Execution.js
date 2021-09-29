@@ -2,21 +2,26 @@ import axios from 'axios';
 import React, {useState, useEffect} from 'react';
 import {EXP_URL} from '../../utils';
 import './Execution.scss';
+import {useLocation} from 'react-router-dom';
 
 function Execute() {
     const [executedRoutine, setExecutedRoutine] = useState(null)
 
+    const location = useLocation();
+
     useEffect(() => {
         axios.get(`${EXP_URL}tempsave`).then((response) => {
             console.log("randalfhdalsfhasd", response.data);
-            setExecutedRoutine(response.data)
+            setExecutedRoutine(response.data.find((exercise) => {
+                return exercise.id === location.state 
+            }))
         })
     }, []);
 
     console.log(executedRoutine)
 
     const handleRoutineDelete = () => {
-        axios.delete(`${EXP_URL}tempsave`)
+        axios.delete(`${EXP_URL}tempsave/${executedRoutine.id}`)
         .then(() => {
             setExecutedRoutine(null);
         })

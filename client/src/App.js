@@ -21,7 +21,7 @@ function App() {
         <Route path='/customize' exact component={CustomizeSelection} />
         <Route path='/customize/:exerciseId' component = {ExerciseList} />
         <Route path='/shuffle' component = {Shuffle} />
-        <Route path='/execute/' component = {Execution} />
+        <Route path='/execute' component = {Execution} />
       </Switch>
     </Router>
   );

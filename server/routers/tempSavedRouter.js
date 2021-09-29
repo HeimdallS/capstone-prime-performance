@@ -15,20 +15,16 @@ const readSaved = () => {
 
 router.post('/', (req, res) => {
     console.log("req test", req.body)
-    const routine = readSaved();
+    const routines = readSaved();
+    console.log(routines);
     const newRoutine = {
-        // id: uuid(),
-            title: req.body.title,
-            id: req.body.id,
-            image: req.body.image,
-            name: req.body.name,
-            description: req.body.description,
-            sets: req.body.sets,
-            reps: req.body.reps,
+        id: req.body.id,
+        title: req.body.title,
+        routineList: req.body.newExercises,
     }
+    routines.push(newRoutine)
 
-    routine.routineList.push(newRoutine);
-    fs.writeFile(`${savedPath}`, JSON.stringify(routine), (err) => {
+    fs.writeFile(`${savedPath}`, JSON.stringify(routines), (err) => {
         if (err)
             console.log(err);
         else {
@@ -56,18 +52,13 @@ router.get('/:savedId', (req, res) => {
 })
 
 // add saved id
-router.delete('/', (req,res) => { 
-    console.log("delete")
+router.delete('/:exerciseId', (req,res) => { 
+    console.log(req.params)
     try {
-        const template = {
-            "title": null,
-            "id": null,
-            "routineList": []
-          }
-        const routine = readSaved(savedPath);
-        // const {savedId} = req.params;
-        // const filteredRoutine = routine.filter(saved => saved.id !== savedId)
-        fs.writeFileSync(`${savedPath}`, JSON.stringify(template))
+        const routines = readSaved(savedPath);
+        const {exerciseId} = req.params;
+        const filteredRoutine = routines.filter(saved => saved.id !== exerciseId)
+        fs.writeFileSync(`${savedPath}`, JSON.stringify(filteredRoutine))
         res.status(200).json({message:'Deleted'})
     }
     catch {

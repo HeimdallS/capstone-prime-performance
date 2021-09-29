@@ -5,6 +5,7 @@ import {useHistory} from 'react-router-dom';
 import './ExerciseList.scss';
 import ExerciseModal from '../../components/ExerciseModal/ExerciseModal';
 import Modal from 'react-modal';
+import {v4 as uuid} from 'uuid';
 
 Modal.setAppElement('#root');
 
@@ -17,6 +18,7 @@ function ExerciseList({match}) {
     const [singleExercise, setSingleExercise] = useState(null)
     const [passInput, setPassInput] = useState("");
     const [routine, setRoutine] = useState(null)
+    const [savedRoutines, setSavedRoutines] = useState([])
 
     const history = useHistory()
 
@@ -28,19 +30,26 @@ function ExerciseList({match}) {
 
     function handleSave(exerciseData) {
         setRoutine(exerciseData);
+        const newExercise = {
+            image: singleExercise.image,
+            id: singleExercise.id,
+            name: singleExercise.name,
+            description: singleExercise.description,
+            reps: exerciseData.reps,
+            sets: exerciseData.sets,
+        }
+        setSavedRoutines([
+            ...savedRoutines, newExercise
+        ])
     }
 
     function handleEvent(event) {
         event.preventDefault();
 
         const workoutDetails = {
+            id: uuid(),
             title: event.target.title.value,
-            image: singleExercise.image,
-            id: singleExercise.id,
-            name: singleExercise.name,
-            description: singleExercise.description,
-            reps: routine.reps,
-            sets: routine.sets,
+            newExercises: savedRoutines,
         }
     
         if(routine.reps !== 0 && routine.sets !== 0) {
@@ -49,7 +58,8 @@ function ExerciseList({match}) {
                 url: (`${EXP_URL}tempsave`),
                 data: workoutDetails,
             }).then (response => {
-                history.push("/execute")
+                // history.push("/execute")
+                history.push({pathname:"/execute", state: workoutDetails.id})
             })
         } else {
             alert("Reps and Sets cannot be kept at or below 0")
