@@ -4,6 +4,8 @@ import {API_URL} from '../../utils';
 import { EXP_URL } from '../../utils';
 import axios from 'axios';
 import Modal from 'react-modal';
+import {useHistory} from 'react-router-dom';
+import qs from 'qs'
 
 function Shuffle() {
     const [muscles, setMuscles] = useState([]);
@@ -11,6 +13,8 @@ function Shuffle() {
     const [showSubmitModal, setShowSubmitModal] = useState(false)
     // an array of muscle id's that a user has selected
     const [selectedMuscleIds, setSelectedMuscleIds] = useState([]);
+
+    const history = useHistory()
 
     useEffect(() => {
         axios.get(`${API_URL}muscle`).then((response) => {
@@ -36,6 +40,7 @@ function Shuffle() {
 
     const handlePost = (event) => {
         event.preventDefault();
+
         const data = {
             muscleIds: selectedMuscleIds, 
             title: event.target.title.value,}
@@ -45,6 +50,7 @@ function Shuffle() {
                 data: data,
             }).then (response => {
                 console.log(response)
+                history.push({pathname:"/execute", search: qs.stringify({id: response.data.id})})
             })
         }
 

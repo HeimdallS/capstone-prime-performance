@@ -3,22 +3,25 @@ import React, {useState, useEffect} from 'react';
 import {EXP_URL} from '../../utils';
 import './Execution.scss';
 import {useLocation} from 'react-router-dom';
+import qs from 'qs'
 
 function Execute() {
     const [executedRoutine, setExecutedRoutine] = useState(null)
 
-    const location = useLocation();
-
+    const {search} = useLocation();
+    const routineId = qs.parse(search, { ignoreQueryPrefix: true }).id;
+    console.log(routineId)
     useEffect(() => {
+        console.log("about to fetch")
         axios.get(`${EXP_URL}tempsave`).then((response) => {
-            console.log("randalfhdalsfhasd", response.data);
+            console.log("this is the response from the API", response.data);
             setExecutedRoutine(response.data.find((exercise) => {
-                return exercise.id === location.state 
+                return exercise.id.toString() === routineId
             }))
         })
-    }, []);
+    }, [routineId]);
 
-    console.log(executedRoutine)
+    // console.log(executedRoutine)
 
     const handleRoutineDelete = () => {
         axios.delete(`${EXP_URL}tempsave/${executedRoutine.id}`)

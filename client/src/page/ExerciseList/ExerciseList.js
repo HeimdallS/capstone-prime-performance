@@ -6,6 +6,7 @@ import './ExerciseList.scss';
 import ExerciseModal from '../../components/ExerciseModal/ExerciseModal';
 import Modal from 'react-modal';
 import {v4 as uuid} from 'uuid';
+import qs from 'qs';
 
 Modal.setAppElement('#root');
 
@@ -59,7 +60,7 @@ function ExerciseList({match}) {
                 data: workoutDetails,
             }).then (response => {
                 // history.push("/execute")
-                history.push({pathname:"/execute", state: workoutDetails.id})
+                history.push({pathname:"/execute", search: qs.stringify({id: workoutDetails.id})})
             })
         } else {
             alert("Reps and Sets cannot be kept at or below 0")
