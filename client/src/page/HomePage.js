@@ -1,55 +1,43 @@
-import axios from 'axios';
 import React, { useState, useEffect } from 'react';
-import {QUOTE_URL} from '../utils'
+import './HomePage.scss';
 
 function HomePage() {
-    // const [author, setAuthor] = useState("")
-    // const [quote, setQuote] = useState("")
 
-    // // const randomNumberGenerator = max => {
-    // //     return Math.floor(Math.random() * max);
-    // // }
+    const [author, setAuthor] = useState("")
+    const [quote, setQuote] = useState("")
 
-    // // const setRandomQuote = list => {
-    // //     let randomIndex = randomNumberGenerator(list.length);
-    // //     while (list[randomIndex].quote === quote.quote) {
-    // //         randomIndex = randomNumberGenerator(list.length);
-    // //     }
-    // //     setQuote(quotesList[randomIndex])
-    // // }
+    useEffect(() => {
+        fetch("http://api.quotable.io/random")
+        .then(res => res.json())
+        .then(
+            (quote) => {
+            setQuote(quote.content)
+            setAuthor(quote.author)
+            }
+        )
+    },[]); 
 
-    // useEffect(() => {
-
-    //     // setError({status:false, message:""}); 
-    //     // if (quotesList.length === 0) {
-    //         fetch("http://api.quotable.io/random")
-    //         .then(res => res.json())
-    //         .then(
-    //             (quote) => {
-    //             setQuote(quote.content)
-    //             setAuthor(quote.author)
-    //             console.log(quote)
-    //         })
-    //     },[]); 
-
-    // const fetchNewQuote = () => {
-    //     fetch("http://api.quotable.io/random")
-    //     .then(res => res.json())
-    //     .then(
-    //         (quote) => {
-    //         setQuote(quote.content)
-    //         setAuthor(quote.author)
-    //         console.log(quote)
-    //     },[]);
+    let fetchNewQuote = () => {
+        fetch("http://api.quotable.io/random")
+        .then(res => res.json())
+        .then(
+            (quote) => {
+            setQuote(quote.content)
+            setAuthor(quote.author)
+            }
+        )
+    }
 
     return (
-        <div>
-            <h1>Let's Get to Work</h1>
-            {/* <div className="home__quote-container">
-                <h2>{quote}</h2>
-                <h3>{author}</h3>
+        <div className="home">
+            <h1 className="home__title">Let's Get to Work</h1>
+            <div className="home__quote-container">
+                <div className="home__quote-text-box">
+                    <h2 className="home__quote">{quote}</h2>
+                </div>
+                <h3 className="home__author">-{author}</h3>
+                <button className="home__button" onClick={fetchNewQuote}>Motivate Me</button>
             </div>
-            <button className="home__button" onClick={() => fetchNewQuote}>Motivate Me</button> */}
         </div>
     )
 }
