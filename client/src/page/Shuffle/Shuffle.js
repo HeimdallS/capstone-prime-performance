@@ -11,7 +11,6 @@ function Shuffle() {
     const [muscles, setMuscles] = useState([]);
     const [exercise, setExercise] = useState([]);
     const [showSubmitModal, setShowSubmitModal] = useState(false)
-    // an array of muscle id's that a user has selected
     const [selectedMuscleIds, setSelectedMuscleIds] = useState([]);
 
     const history = useHistory()
@@ -62,6 +61,13 @@ function Shuffle() {
         setShowSubmitModal(false)
     }
 
+    const borderStyle ={
+        position: 'absolute',
+        border: '9px solid rgb(206, 18, 18)',
+        width: '16.7rem',
+        height: '9rem',
+    }
+
     return (
         <div>
             <h1 className="shuffle__title">Shuffle</h1>
@@ -69,7 +75,7 @@ function Shuffle() {
             <div key={muscleGroup.id} className="customize__card" onClick={() => selectOrUnselectMuscle(muscleGroup.id)}>
                 {
                     selectedMuscleIds.includes(muscleGroup.id) ? 
-                    <div>selected</div> : null
+                    <div className="shuffle__border" style={borderStyle}></div> : null
                 }
                 <MuscleSelection group={muscleGroup} />
             </div>
