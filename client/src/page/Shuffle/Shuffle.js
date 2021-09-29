@@ -5,13 +5,14 @@ import { EXP_URL } from '../../utils';
 import axios from 'axios';
 
 function Shuffle() {
-    const [muscles, setGroup] = useState([]);
+    const [muscles, setMuscles] = useState([]);
     const [exercise, setExercise] = useState([]);
-    const [targetMuscle, setTargetMuscle] = useState([]);
+    // an array of muscle id's that a user has selected
+    const [selectedMuscleIds, setSelectedMuscleIds] = useState([]);
 
     useEffect(() => {
         axios.get(`${API_URL}muscle`).then((response) => {
-            setGroup(response.data.results);
+            setMuscles(response.data.results);
         })
     }, []);
 
@@ -21,40 +22,39 @@ function Shuffle() {
         })
     }, []);
 
-    const shuffleArray = array => {
-        for (let i = array.length - 1; i > 0; i --) {
-            const j = Math.floor(Math.random() * (i + 1));
-            const temp = array[i]
-            array[i] = array[j]
-            array[j] = temp;
+    function selectOrUnselectMuscle(id) {
+        const currentlySelectedMuscleIds = selectedMuscleIds || []
+
+        const newSelectedMuscleIds = currentlySelectedMuscleIds.includes(id) ? 
+        currentlySelectedMuscleIds.filter(selectedId => selectedId !== id) : 
+        [...currentlySelectedMuscleIds, id]
+
+        setSelectedMuscleIds(newSelectedMuscleIds);
+    }
+
+    const handlePost = () => {
+            axios({
+                method: "POST",
+                url: (`${EXP_URL}shuffle`),
+                data: selectedMuscleIds,
+            }).then (response => {
+                console.log(response)
+            })
         }
-        return array;
-    }
-
-    // const handleClick = (clickedMuscleGroup) => {
-    //     setTargetMuscle(clickedMuscleGroup)
-    //     const 
-    // }
-
-    // const exerciseRoutine = exercise;
-    // for(let i = 0, length = exerciseRoutine.length; i < length; i ++) {
-    // console.log(exerciseRoutine[i].muscles)
-    // }
-
-    const handleEvent = (e) => {
-        e.prevenDefault()
-
-        shuffleArray(exercise)
-    }
-
+        
     return (
         <div>
             <h1 className="shuffle__title">Shuffle</h1>
             {muscles.map((muscleGroup) => (
-            <div key={muscleGroup.id} className="customize__card">
-                <MuscleSelection group={muscleGroup}/>
+            <div key={muscleGroup.id} className="customize__card" onClick={() => selectOrUnselectMuscle(muscleGroup.id)}>
+                {
+                    selectedMuscleIds.includes(muscleGroup.id) ? 
+                    <div>selected</div> : null
+                }
+                <MuscleSelection group={muscleGroup} />
             </div>
             ))}
+            <button type="submit" className="shuffle__button" onClick={() => handlePost()}>Shuffle</button>
         </div>
     )
 }

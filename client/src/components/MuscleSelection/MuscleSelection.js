@@ -1,6 +1,7 @@
 import React from 'react'
 
 function MuscleSelection({group}) {
+
     return (
         <>
             <div className="customize__image-container">

@@ -34,7 +34,7 @@ function Execute() {
             {executedRoutine.routineList.map((temp) => (
                 <div className="routine__container">
                     <div className="routine__image-container">
-                        <img src={temp.image} className="routine__image" />
+                        <img src={temp.image} className="routine__image" alt="workout visual"/>
                     </div>
                     <div className="routine__info-container">
                         <h2 className="routine__name">{temp.name}</h2>
