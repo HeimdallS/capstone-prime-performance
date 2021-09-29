@@ -17,7 +17,6 @@ function ExerciseList({match}) {
     const [showSubmitModal, setShowSubmitModal] = useState(false)
     const [exercise, setExercise] = useState([])
     const [singleExercise, setSingleExercise] = useState(null)
-    const [passInput, setPassInput] = useState("");
     const [routine, setRoutine] = useState(null)
     const [savedRoutines, setSavedRoutines] = useState([])
 
@@ -59,7 +58,6 @@ function ExerciseList({match}) {
                 url: (`${EXP_URL}tempsave`),
                 data: workoutDetails,
             }).then (response => {
-                // history.push("/execute")
                 history.push({pathname:"/execute", search: qs.stringify({id: workoutDetails.id})})
             })
         } else {
@@ -113,7 +111,7 @@ function ExerciseList({match}) {
             isOpen={showModal}
             onRequestClose={openModal}
             >
-                <ExerciseModal selectedEx={singleExercise} closeModal={closeModal} routineTitle={passInput} onSave={handleSave}/>
+                <ExerciseModal selectedEx={singleExercise} closeModal={closeModal} onSave={handleSave}/>
             </Modal>
             <button to='/execute' className="exercise__execute" onClick={openSubmitModal}>Execute</button>
             <Modal
