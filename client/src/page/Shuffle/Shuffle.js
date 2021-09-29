@@ -5,7 +5,8 @@ import { EXP_URL } from '../../utils';
 import axios from 'axios';
 import Modal from 'react-modal';
 import {useHistory} from 'react-router-dom';
-import qs from 'qs'
+import qs from 'qs';
+import './Shuffle.scss';
 
 function Shuffle() {
     const [muscles, setMuscles] = useState([]);
@@ -64,12 +65,12 @@ function Shuffle() {
     const borderStyle ={
         position: 'absolute',
         border: '9px solid rgb(206, 18, 18)',
-        width: '16.7rem',
+        width: '45%',
         height: '9rem',
     }
 
     return (
-        <div>
+        <div className="shuffle">
             <h1 className="shuffle__title">Shuffle</h1>
             {muscles.map((muscleGroup) => (
             <div key={muscleGroup.id} className="customize__card" onClick={() => selectOrUnselectMuscle(muscleGroup.id)}>

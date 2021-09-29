@@ -3,7 +3,8 @@ import React, {useState, useEffect} from 'react';
 import {EXP_URL} from '../../utils';
 import './Execution.scss';
 import {useLocation} from 'react-router-dom';
-import qs from 'qs'
+import qs from 'qs';
+import {Link} from 'react-router-dom';
 
 function Execute() {
     const [executedRoutine, setExecutedRoutine] = useState(null)
@@ -55,7 +56,7 @@ function Execute() {
                 </div>
             ))}
             <div className="routine__button-container">
-                <button className="routine__cancel" onClick={() => handleRoutineDelete()}>Cancel</button>
+                <Link to='/' className="routine__cancel" onClick={() => handleRoutineDelete()}>Cancel</Link>
                 <button className="routine__submit" type="submit">Submit</button>
             </div>
         </div>

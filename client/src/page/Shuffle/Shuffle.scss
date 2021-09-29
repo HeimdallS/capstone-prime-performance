@@ -1,0 +1,25 @@
+@use "../../partials/variables" as *;
+
+.shuffle {
+  padding-bottom: 2.5rem;
+
+  &__button {
+    width: 100%;
+    padding-top: 0.3rem;
+    text-align: center;
+    height: 3.5rem;
+    border: none;
+    background-color: $secondary-background;
+    color: $secondary-text;
+    font-size: 2rem;
+    font-style: italic;
+    font-weight: bold;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+
+    &:active {
+      background-color: $primary-background;
+    }
+  }
+}
