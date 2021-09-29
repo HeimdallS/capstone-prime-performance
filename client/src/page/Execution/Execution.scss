@@ -59,6 +59,9 @@
     color: $secondary-text;
     width: 5rem;
     height: 2rem;
+    text-decoration: none;
+    text-align: center;
+    padding-top: 0.3rem;
 
     &:active {
       background-color: $primary-background;
@@ -71,6 +74,9 @@
     color: $secondary-text;
     width: 5rem;
     height: 2rem;
+    text-decoration: none;
+    text-align: center;
+    padding-top: 0.3rem;
 
     &:active {
       background-color: $primary-background;

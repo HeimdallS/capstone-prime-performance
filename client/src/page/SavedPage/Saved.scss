@@ -6,6 +6,12 @@
     margin-left: 3rem;
   }
 
+  &__content-container {
+    display: flex;
+    align-items: center;
+    border: 1px solid $secondary-background;
+  }
+
   &__card {
     text-decoration: none;
     color: $primary-text;
@@ -18,5 +24,46 @@
     &:active {
       border-color: $primary-background;
     }
+  }
+
+  &__image-container {
+    width: 8.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__image {
+    width: 8rem;
+    height: 7rem;
+  }
+
+  &__info-container {
+    padding-left: 1.5rem;
+    border-left: 2px solid $secondary-background;
+    padding-left: 1.5rem;
+  }
+
+  &__name {
+    margin: 0;
+    font-weight: 600;
+    color: $secondary-background;
+  }
+
+  &__counter-container {
+    display: flex;
+  }
+
+  &__sets-container {
+    margin-right: 4rem;
+  }
+
+  &__counter-title {
+    margin: 0;
+    font-weight: 500;
+  }
+
+  &__counter {
+    margin: 0;
   }
 }

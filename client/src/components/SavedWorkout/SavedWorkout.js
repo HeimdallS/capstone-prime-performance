@@ -23,7 +23,24 @@ function SavedWorkout(props) {
     return (
         <>
             {showSaved.routineList.map((savedRoutine) => (
-                <div>{savedRoutine.name}</div>
+            <main className="saved__content-container">
+                <div className="saved__image-container">
+                    <img src={savedRoutine.image} className="saved__image" alt="workout reference"/>
+                </div>
+                <div className="saved__info-container">
+                <h3 className="saved__name">{savedRoutine.name}</h3>
+                    <div className="saved__counter-container">
+                        <div className="saved__sets-container">
+                            <h3 className="routine__counter-title">Sets</h3>
+                            <p className="routine__counter">{savedRoutine.sets}</p>
+                        </div>
+                        <div clsasName="saved__reps-container">
+                            <h3 className="routine__counter-title">Reps</h3>
+                            <p className="routine__counter">{savedRoutine.reps}</p>
+                        </div>
+                    </div>
+                </div>
+            </main>
             ))}
                 
         </>

@@ -57,7 +57,7 @@ function Execute() {
             ))}
             <div className="routine__button-container">
                 <Link to='/' className="routine__cancel" onClick={() => handleRoutineDelete()}>Cancel</Link>
-                <button className="routine__submit" type="submit">Submit</button>
+                <Link to='/saved' className="routine__submit" type="submit">Submit</Link>
             </div>
         </div>
     )
