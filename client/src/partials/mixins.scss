@@ -1,0 +1,7 @@
+@use "./variables.scss" as *;
+
+@mixin button {
+  border: none;
+  background-color: $secondary-background;
+  color: $secondary-text;
+}

@@ -1,4 +1,5 @@
 @use "../../partials/variables" as *;
+@use "../../partials/mixins" as *;
 
 .modal {
   &__container {
@@ -63,9 +64,7 @@
   }
 
   &__cancel {
-    border: none;
-    background-color: $secondary-background;
-    color: $secondary-text;
+    @include button;
     width: 5rem;
     height: 2rem;
 
@@ -75,9 +74,7 @@
   }
 
   &__save {
-    border: none;
-    background-color: $secondary-background;
-    color: $secondary-text;
+    @include button;
     width: 5rem;
     height: 2rem;
 

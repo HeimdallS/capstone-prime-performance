@@ -1,4 +1,5 @@
 @use "../../partials/variables.scss" as *;
+@use "../../partials/mixins.scss" as *;
 
 .home {
   &__quote-container {
@@ -30,13 +31,11 @@
 
   &__button {
     text-decoration: none;
-    background-color: $secondary-background;
-    color: $secondary-text;
+    @include button;
     width: 6rem;
     height: 2rem;
     text-align: center;
     padding: 5px;
-    border: none;
 
     &:active {
       background-color: $primary-background;
