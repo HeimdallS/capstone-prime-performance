@@ -22,8 +22,6 @@ function Execute() {
         })
     }, [routineId]);
 
-    // console.log(executedRoutine)
-
     const handleRoutineDelete = () => {
         axios.delete(`${EXP_URL}tempsave/${executedRoutine.id}`)
         .then(() => {

@@ -66,4 +66,21 @@
   &__counter {
     margin: 0;
   }
+
+  &__delete-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  &__delete {
+    text-decoration: none;
+    background-color: $secondary-background;
+    color: $secondary-text;
+    width: 5rem;
+    height: 2rem;
+    text-align: center;
+    padding-top: 0.5rem;
+    margin-top: 1.5rem;
+  }
 }

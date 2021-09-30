@@ -51,7 +51,9 @@ function SavedWorkout(props) {
                 </div>
             </main>
             ))}
-            <Link to='/saved' onClick={() => handleRoutineDelete()} className="saved__delete">Delete</Link>
+            <div className="saved__delete-container">
+                <Link to='/saved' onClick={() => handleRoutineDelete()} className="saved__delete">Delete</Link>
+            </div>
         </>
     )
 }
