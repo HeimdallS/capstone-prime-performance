@@ -21,10 +21,4 @@ export const NavBarData = [
         icon: <GiIcon.GiSaveArrow />,
         className:"burger__path"
     },
-    {
-        title: 'Progress',
-        path: '/progress',
-        icon: <BsIcon.BsCalendar />,
-        className:"burger__path"
-    },
 ]

@@ -5,7 +5,6 @@ const fs = require('fs');
 const {v4: uuid} = require('uuid');
 
 const savedPath = "./data/temp-saved-list.json"
-// const directedSavedPath = require("../data/temp-saved-list.json")
 
 const readSaved = () => {
     const readSavedData = fs.readFileSync(savedPath);
@@ -51,7 +50,6 @@ router.get('/:savedId', (req, res) => {
     res.json(savedExercise)
 })
 
-// add saved id
 router.delete('/:exerciseId', (req,res) => { 
     console.log(req.params)
     try {

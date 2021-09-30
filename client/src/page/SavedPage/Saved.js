@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {EXP_URL} from '../../utils';
 import axios from 'axios';
-import SavedWorkout from '../../components/SavedWorkout/SavedWorkout';
 import {Link} from 'react-router-dom'
 import './Saved.scss';
 
@@ -15,17 +14,17 @@ function Saved() {
         })
     }, []);
 
-    console.log("saveddata", savedRoutines)
-
     return (
         <main>
             <h1 className="saved__title">Saved Routines</h1>
             {savedRoutines.map((prevSaves) => (
+            <>
             <div className="saved__container">
                 <Link to={"saved/" + prevSaves.id} key={prevSaves.id} className="saved__card">
                     {prevSaves.title}
                 </Link>
             </div>
+            </>
             ))}
         </main>
     ) 

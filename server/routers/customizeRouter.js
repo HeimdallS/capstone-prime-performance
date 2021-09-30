@@ -2,7 +2,6 @@ const { json } = require('express');
 const express = require('express');
 const router = express.Router();
 const fs = require('fs');
-const {v4: uuid} = require('uuid');
 
 const customizePath = "./data/exercise-list.json";
 
@@ -30,15 +29,5 @@ router.get('/:exerciseId', (req, res) => {
     }
     res.json(individualExercise)
 })
-
-// router.post('/:exerciseId', (req, res) => {
-//     const exercise = readExercise();
-//     const newRoutine = {
-//         id: uuid(),
-//         name: req.body.name,
-//         reps: req.body.reps,
-//         sets: req.body.sets, 
-//     }
-// })
 
 module.exports = router; 

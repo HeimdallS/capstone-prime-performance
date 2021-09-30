@@ -1,6 +1,8 @@
 import axios from 'axios'
 import React, {useState, useEffect} from 'react'
 import {EXP_URL} from '../../utils';
+import {Link} from 'react-router-dom';
+
 
 function SavedWorkout(props) {
     const [showSaved, setShowSaved] = useState(null)
@@ -13,6 +15,13 @@ function SavedWorkout(props) {
             setShowSaved(foundExercises);
         })
     },[])
+
+    const handleRoutineDelete = () => {
+        axios.delete(`${EXP_URL}tempsave/${showSaved.id}`)
+        .then(() => {
+            setShowSaved(null);
+        })
+    }
 
     console.log("saved info", showSaved)
 
@@ -42,7 +51,7 @@ function SavedWorkout(props) {
                 </div>
             </main>
             ))}
-                
+            <Link to='/saved' onClick={() => handleRoutineDelete()} className="saved__delete">Delete</Link>
         </>
     )
 }
