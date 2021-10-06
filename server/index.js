@@ -9,6 +9,10 @@ const PORT = process.env.PORT || 8000;
 app.use(express.json());
 app.use(cors());
 
+app.get('/', (req,res) => {
+    res.send(`<h1>Express Test</h1>`)
+})
+
 app.use((req, res, next) => {
     console.log("Next request test");
     next();
