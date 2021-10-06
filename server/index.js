@@ -4,7 +4,7 @@ const cors = require("cors");
 const customizeRouter = require('./routers/customizeRouter');
 const tempSavedRouter=require('./routers/tempSavedRouter');
 const shuffleRouter = require('./routers/shuffleRouter');
-const PORT = 8000;
+const PORT = process.env.PORT || 8000;
 
 app.use(express.json());
 app.use(cors());
