@@ -7,25 +7,25 @@ function HomePage() {
     const [quote, setQuote] = useState("")
 
     useEffect(() => {
-        fetch("http://api.quotable.io/random")
-        .then(res => res.json())
-        .then(
-            (quote) => {
-            setQuote(quote.content)
-            setAuthor(quote.author)
-            }
-        )
-    },[]); 
+        getQuote()
+    }, []); 
 
-    let fetchNewQuote = () => {
-        fetch("http://api.quotable.io/random")
+    const getQuote = () => {
+        const url = "https://gist.githubusercontent.com/camperbot/5a022b72e96c4c9585c32bf6a75f62d9/raw/e3c6895ce42069f0ee7e991229064f167fe8ccdc/quotes.json";
+        fetch(url)
         .then(res => res.json())
-        .then(
-            (quote) => {
-            setQuote(quote.content)
-            setAuthor(quote.author)
-            }
-        )
+        .then(data => {
+            let dataQuotes = data.quotes;
+            let randomNum = Math.floor(Math.random() * dataQuotes.length);
+            let randomQuote = dataQuotes[randomNum];
+
+            setQuote(randomQuote.quote)
+            setAuthor(randomQuote.author)
+        })  
+    }
+
+    const fetchNewQuote = () => {
+        getQuote();
     }
 
     return (
